@@ -14,7 +14,7 @@ def show_board(game):
 
 
 def play_game(game):
-    game.reset()
+    game = TicTacToe()
     print('\n')
     player1 = input('Enter your name: ')
     player2 = input('Enter your name: ')

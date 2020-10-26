@@ -1,21 +1,19 @@
 import random
 
-class TicTacToe:
 
-    def reset(self):
-        self.board = ['_', '_', '_',
-                      '_', '_', '_',
-                      '_', '_', '_']
-        self.set_game_state()
-        self.player = 'O'
-        self.winner = None
-        self.player_names = []
+class TicTacToe:
 
     def set_game_state(self, start=True):
         self.game_in_progress = start
 
     def __init__(self):
-        self.reset()
+        self.board = ['_', '_', '_',
+                      '_', '_', '_',
+                      '_', '_', '_']
+        self.game_in_progress = True
+        self.player = 'O'
+        self.winner = None
+        self.player_names = []
 
     def set_player_names(self, player1, player2):
         self.player_names = [player1, player2]
@@ -32,7 +30,7 @@ class TicTacToe:
 
     def update_board(self, pos):
         valid_inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        if pos not in valid_inputs:
+        if pos not in valid_inputs or self.board[pos-1] != '_' or '_' not in self.board:
             return False
         self.board[pos-1] = self.player
         return True
